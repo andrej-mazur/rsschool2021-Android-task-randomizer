@@ -1,29 +1,30 @@
-package com.rsschool.android2021;
+package com.rsschool.android2021
 
-import android.os.Bundle;
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
+class MainActivity : AppCompatActivity(),
+    FirstFragmentStarter,
+    SecondFragmentStarter {
 
-public class MainActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        openFirstFragment(0);
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        startFirstFragment(0)
     }
 
-    private void openFirstFragment(int previousNumber) {
-        final Fragment firstFragment = FirstFragment.newInstance(previousNumber);
-        final FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.container, firstFragment);
-        // TODO: invoke function which apply changes of the transaction
+    override fun startFirstFragment(previousNumber: Int) {
+        val firstFragment: Fragment = FirstFragment.newInstance(previousNumber)
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container, firstFragment)
+            .commit()
     }
 
-    private void openSecondFragment(int min, int max) {
-        // TODO: implement it
+    override fun startSecondFragment(min: Int, max: Int) {
+        val firstFragment: Fragment = SecondFragment.newInstance(min, max)
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container, firstFragment)
+            .commit()
     }
 }
