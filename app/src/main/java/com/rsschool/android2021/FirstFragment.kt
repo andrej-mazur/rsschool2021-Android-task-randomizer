@@ -15,7 +15,6 @@ import androidx.fragment.app.Fragment
 class FirstFragment : Fragment() {
 
     private var secondFragmentStarter: SecondFragmentStarter? = null
-
     private var generateButton: Button? = null
     private var previousResult: TextView? = null
     private var minEditText: EditText? = null

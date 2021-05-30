@@ -64,6 +64,7 @@ class SecondFragment : Fragment() {
 
     companion object {
 
+        @JvmStatic
         fun newInstance(min: Int, max: Int): SecondFragment {
             val args = Bundle().apply {
                 putInt(MIN_VALUE_KEY, min)
